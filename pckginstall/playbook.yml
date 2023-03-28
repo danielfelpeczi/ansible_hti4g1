@@ -1,0 +1,10 @@
+---
+- name: install {{ package }}
+  hosts: webservers
+  vars_files:
+    - vars.yml
+  tasks:
+    - name: the {{ package }} installed
+      ansible.builtin.dnf:
+        name: "{{ package }}"
+        state: latest
